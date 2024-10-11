@@ -20,11 +20,14 @@ public class PlayerMovement : MonoBehaviour
     private float auraScale = 1;
     // private Animator anim;
     private BoxCollider2D boxCollider;
-    private float wallJumpCooldown;
+    private float jumpCooldown;
     private float horizontalInput;
     private PlayersLight playerLight;
     public bool midFeatherTaken = false;
     private bool lockPlayer = false;
+    private bool flying = false;
+    bool canJump;
+    float jumpDelay;
     
     private void Awake()
     {
@@ -80,7 +83,7 @@ public class PlayerMovement : MonoBehaviour
         // anim.SetBool("grounded", isGrounded());
 
         //Wall jump logic
-        if (wallJumpCooldown > 0.2f)
+        if (jumpCooldown > 0.2f)
         {
             body.velocity = new Vector2(horizontalInput * speed, body.velocity.y);
 
@@ -96,7 +99,8 @@ public class PlayerMovement : MonoBehaviour
                 Jump();
         }
         else
-            wallJumpCooldown += Time.deltaTime;
+            jumpCooldown += Time.deltaTime;
+        
     }
 
     private IEnumerator GameOver()
@@ -139,6 +143,13 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        if (collision.gameObject.CompareTag("Ground"))
+            ResetJump();
+    }
+    void ResetJump()
+    {
+        canJump = true;
+        jumpDelay = 0;
     }
 
     private bool isGrounded()
@@ -147,6 +158,9 @@ public class PlayerMovement : MonoBehaviour
         
         return raycastHit.collider != null;
     }
+
+  
+
     private bool onWall()
     {
         RaycastHit2D raycastHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, new Vector2(transform.localScale.x, 0), 0.1f, wallLayer);
