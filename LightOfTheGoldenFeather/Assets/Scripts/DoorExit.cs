@@ -1,16 +1,16 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class SMFeather : MonoBehaviour
+public class DoorExit : MonoBehaviour
 {
+    [SerializeField] private int sceneID;
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "Player")
         {
-            Destroy(gameObject);
-            PlayerMovement.instance.collectFeather(1f);
+            SceneManager.LoadSceneAsync(sceneID);
         }
     }
 }

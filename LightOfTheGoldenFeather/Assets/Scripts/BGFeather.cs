@@ -1,16 +1,16 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SMFeather : MonoBehaviour
+public class BGFeather : MonoBehaviour
 {
+    // Start is called before the first frame update
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "Player")
         {
             Destroy(gameObject);
-            PlayerMovement.instance.collectFeather(1f);
+            PlayerMovement.instance.collectFeather(3f);
         }
     }
 }
