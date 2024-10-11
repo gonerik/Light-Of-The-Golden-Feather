@@ -54,7 +54,6 @@ public class PlayerMovement : MonoBehaviour
     }
     private void Update()
     {
-<<<<<<< Updated upstream:LightOfTheGoldenFeather/Assets/Scripts/PlayerMovement.cs
         if (lockPlayer)
         {
             return;
@@ -65,13 +64,11 @@ public class PlayerMovement : MonoBehaviour
             StartCoroutine(GameOver());
         }
         playerLight.gameObject.transform.localScale = new Vector3(auraScale*6, auraScale*4, 0);
-=======
         float x = Camera.main.WorldToScreenPoint(transform.position).x/Screen.height;
         float y = Camera.main.WorldToScreenPoint(transform.position).y/Screen.height;
         mat.SetVector("_position",new Vector2(x,y)); // TODO: Ogarn¹c tego ¿ycie, to powinno byæ w osobnym skrypcie który ogarnia wszystkie na raz
 
 
->>>>>>> Stashed changes:LightOfTheGoldenFeather/Assets/Scripts/Player.cs
         horizontalInput = Input.GetAxis("Horizontal");
         //Flip player when moving left-right
         if (horizontalInput > 0.01f)
