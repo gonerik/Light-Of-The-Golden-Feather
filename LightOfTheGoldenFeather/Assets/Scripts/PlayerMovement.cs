@@ -14,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float lightDownSpeed = 0.003f;
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private LayerMask wallLayer;
+    [SerializeField] private GameObject settingsMenu;
     private Rigidbody2D body;
     private DoorRespawn respawn;
     private float auraScale = 1;
@@ -51,6 +52,12 @@ public class PlayerMovement : MonoBehaviour
     }
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            lockPlayer = !lockPlayer;
+            settingsMenu.SetActive(lockPlayer);
+            
+        }
         if (lockPlayer)
         {
             return;
@@ -77,12 +84,12 @@ public class PlayerMovement : MonoBehaviour
         {
             body.velocity = new Vector2(horizontalInput * speed, body.velocity.y);
 
-            if (onWall() && !isGrounded())
-            {
-                body.gravityScale = 0;
-                body.velocity = Vector2.zero;
-            }
-            else
+            // if (onWall() && !isGrounded())
+            // {
+            //     body.gravityScale = 0;
+            //     body.velocity = Vector2.zero;
+            // }
+            // else
                 body.gravityScale = 7;
 
             if (Input.GetKey(KeyCode.Space))
@@ -116,18 +123,18 @@ public class PlayerMovement : MonoBehaviour
         }
 
         
-        else if (onWall() && !isGrounded())
-        {
-            if (horizontalInput == 0)
-            {
-                body.velocity = new Vector2(-Mathf.Sign(transform.localScale.x) * 10, 0);
-                transform.localScale = new Vector3(-Mathf.Sign(transform.localScale.x), transform.localScale.y, transform.localScale.z);
-            }
-            else
-                body.velocity = new Vector2(-Mathf.Sign(transform.localScale.x) * 3, 6);
-
-            wallJumpCooldown = 0;
-        }
+        // else if (onWall() && !isGrounded())
+        // {
+        //     if (horizontalInput == 0)
+        //     {
+        //         body.velocity = new Vector2(-Mathf.Sign(transform.localScale.x) * 10, 0);
+        //         transform.localScale = new Vector3(-Mathf.Sign(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+        //     }
+        //     else
+        //         body.velocity = new Vector2(-Mathf.Sign(transform.localScale.x) * 3, 6);
+        //
+        //     wallJumpCooldown = 0;
+        // }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -143,12 +150,13 @@ public class PlayerMovement : MonoBehaviour
     private bool onWall()
     {
         RaycastHit2D raycastHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, new Vector2(transform.localScale.x, 0), 0.1f, wallLayer);
-        return raycastHit.collider != null;
+        // return raycastHit.collider != null;
+        return false;
     }
 
     public void collectFeather(float lenght)
     {
-        if(auraScale>lenght) 
+        if(auraScale<lenght) 
             auraScale = lenght;
     }
 
