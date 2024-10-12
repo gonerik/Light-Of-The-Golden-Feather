@@ -111,6 +111,7 @@ GameObject:
   - component: {fileID: 7113343133947368237}
   - component: {fileID: 4358769897971256299}
   - component: {fileID: 4434203693171172516}
+  - component: {fileID: 8556128373307997124}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -128,8 +129,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -14.1, y: -6.74, z: 0}
-  m_LocalScale: {x: 0.9319, y: 0.9319158, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 4.6595, y: 4.6595793, z: 5}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 5332458278413069101}
   - {fileID: 8621755033834985551}
@@ -176,12 +177,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: -335920741, guid: 24b06148739ce1c46a66c39991343d15, type: 3}
   m_Color: {r: 0.1137255, g: 0.1137255, b: 0.1137255, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.537963, y: 0.49351853}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -219,18 +220,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.1, y: -0.16}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
+    oldSize: {x: 0.537963, y: 0.49351853}
+    newSize: {x: 0.537963, y: 0.49351853}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.2, y: 0.2}
   m_EdgeRadius: 0
 --- !u!50 &7113343133947368237
 Rigidbody2D:
@@ -272,7 +273,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
-  jumpPower: 22
+  jumpPower: 25
   lightDownSpeed: 0.003
   groundLayer:
     serializedVersion: 2
@@ -284,6 +285,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   settingsMenu: {fileID: 0}
+  playerAnimator: {fileID: 8556128373307997124}
   auraScale: 1
   midFeatherTaken: 0
   jumpDelay: 0
@@ -302,6 +304,27 @@ MonoBehaviour:
   mat: {fileID: 2100000, guid: de21fab0db853384295dfb1118af3c49, type: 2}
   light: {fileID: 6477475618057214470}
   PM: {fileID: 4358769897971256299}
+--- !u!95 &8556128373307997124
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6748799310739517294}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d1ccbb8ad1352924ea10cbd69200a873, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &7073441367720467424
 GameObject:
   m_ObjectHideFlags: 0

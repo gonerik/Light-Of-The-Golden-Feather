@@ -342,32 +342,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f89c8f1b98b33d94c99e2b14c474ae5f, type: 3}
---- !u!1 &169733172 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6748799310739517294, guid: b91331129efcbb7409b6049d1cf53647, type: 3}
-  m_PrefabInstance: {fileID: 1543818802}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &169733179
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 169733172}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: d1ccbb8ad1352924ea10cbd69200a873, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &184018412
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3151,86 +3125,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2690834774200640739, guid: b91331129efcbb7409b6049d1cf53647, type: 3}
-      propertyPath: m_Size.x
-      value: 0.537963
-      objectReference: {fileID: 0}
-    - target: {fileID: 2690834774200640739, guid: b91331129efcbb7409b6049d1cf53647, type: 3}
-      propertyPath: m_Size.y
-      value: 0.49351853
-      objectReference: {fileID: 0}
-    - target: {fileID: 2690834774200640739, guid: b91331129efcbb7409b6049d1cf53647, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: -335920741, guid: 24b06148739ce1c46a66c39991343d15, type: 3}
-    - target: {fileID: 2690834774200640739, guid: b91331129efcbb7409b6049d1cf53647, type: 3}
-      propertyPath: m_WasSpriteAssigned
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4358769897971256299, guid: b91331129efcbb7409b6049d1cf53647, type: 3}
-      propertyPath: speed
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 4358769897971256299, guid: b91331129efcbb7409b6049d1cf53647, type: 3}
-      propertyPath: jumpPower
-      value: 25
-      objectReference: {fileID: 0}
     - target: {fileID: 4358769897971256299, guid: b91331129efcbb7409b6049d1cf53647, type: 3}
       propertyPath: settingsMenu
       value: 
       objectReference: {fileID: 1251836216}
-    - target: {fileID: 4358769897971256299, guid: b91331129efcbb7409b6049d1cf53647, type: 3}
-      propertyPath: lightDownSpeed
-      value: 0.003
-      objectReference: {fileID: 0}
-    - target: {fileID: 4358769897971256299, guid: b91331129efcbb7409b6049d1cf53647, type: 3}
-      propertyPath: playerAnimator
-      value: 
-      objectReference: {fileID: 169733179}
-    - target: {fileID: 4372164168336600883, guid: b91331129efcbb7409b6049d1cf53647, type: 3}
-      propertyPath: m_Size.x
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4372164168336600883, guid: b91331129efcbb7409b6049d1cf53647, type: 3}
-      propertyPath: m_Size.y
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4372164168336600883, guid: b91331129efcbb7409b6049d1cf53647, type: 3}
-      propertyPath: m_Offset.x
-      value: -0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4372164168336600883, guid: b91331129efcbb7409b6049d1cf53647, type: 3}
-      propertyPath: m_Offset.y
-      value: -0.16
-      objectReference: {fileID: 0}
-    - target: {fileID: 4372164168336600883, guid: b91331129efcbb7409b6049d1cf53647, type: 3}
-      propertyPath: m_SpriteTilingProperty.newSize.x
-      value: 0.537963
-      objectReference: {fileID: 0}
-    - target: {fileID: 4372164168336600883, guid: b91331129efcbb7409b6049d1cf53647, type: 3}
-      propertyPath: m_SpriteTilingProperty.newSize.y
-      value: 0.49351853
-      objectReference: {fileID: 0}
-    - target: {fileID: 4372164168336600883, guid: b91331129efcbb7409b6049d1cf53647, type: 3}
-      propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 0.537963
-      objectReference: {fileID: 0}
-    - target: {fileID: 4372164168336600883, guid: b91331129efcbb7409b6049d1cf53647, type: 3}
-      propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 0.49351853
-      objectReference: {fileID: 0}
-    - target: {fileID: 5968388331221753979, guid: b91331129efcbb7409b6049d1cf53647, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 4.6595
-      objectReference: {fileID: 0}
-    - target: {fileID: 5968388331221753979, guid: b91331129efcbb7409b6049d1cf53647, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 4.6595793
-      objectReference: {fileID: 0}
-    - target: {fileID: 5968388331221753979, guid: b91331129efcbb7409b6049d1cf53647, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 5968388331221753979, guid: b91331129efcbb7409b6049d1cf53647, type: 3}
       propertyPath: m_LocalPosition.x
       value: -14.1
@@ -3271,10 +3169,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5968388331221753979, guid: b91331129efcbb7409b6049d1cf53647, type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6748799310739517294, guid: b91331129efcbb7409b6049d1cf53647, type: 3}
       propertyPath: m_Name
       value: Player
@@ -3282,10 +3176,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6748799310739517294, guid: b91331129efcbb7409b6049d1cf53647, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 169733179}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b91331129efcbb7409b6049d1cf53647, type: 3}
 --- !u!1 &1659026259
 GameObject:
