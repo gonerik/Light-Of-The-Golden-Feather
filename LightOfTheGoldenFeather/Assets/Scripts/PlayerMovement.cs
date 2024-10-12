@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private LayerMask wallLayer;
     [SerializeField] private LayerMask slopeLayer;
     [SerializeField] private GameObject settingsMenu;
+    [SerializeField] private Animator playerAnimator;
 
     private Rigidbody2D body;
     private DoorRespawn respawn;
@@ -73,6 +74,16 @@ public class PlayerMovement : MonoBehaviour
         }
 
         horizontalInput = Input.GetAxis("Horizontal");
+        if (Math.Abs(horizontalInput) > 0.01f)
+        {
+            playerAnimator.ResetTrigger("Idle");
+            playerAnimator.SetTrigger("Run");
+        }
+        else
+        {
+            playerAnimator.ResetTrigger("Run");
+            playerAnimator.SetTrigger("Idle");
+        }
         // Flip player when moving left-right
         if (horizontalInput > 0.01f)
             transform.localScale = new Vector3(Math.Abs(transform.localScale.x), transform.localScale.y, 1);
@@ -98,6 +109,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void dieInstantly()
     {
+        playerAnimator.SetTrigger("Respawn");
         body.velocity = new Vector2(0, 0);
         instance.gameObject.transform.position = respawn.transform.position;
         auraScale = respawn.startAura;
@@ -113,12 +125,14 @@ public class PlayerMovement : MonoBehaviour
         {
             canJump = false;
             body.velocity = new Vector2(body.velocity.x, jumpPower); // Jump logic remains the same
+            playerAnimator.SetTrigger("Jump");
             // anim.SetTrigger("jump");
         }
         else if (midFeatherTaken)
         {
             midFeatherTaken = false;
             body.velocity = new Vector2(body.velocity.x, jumpPower);
+            playerAnimator.SetTrigger("Jump");
         }
         if (bigFeatherTaken)
         {
@@ -139,6 +153,8 @@ public class PlayerMovement : MonoBehaviour
     private bool checkSlope()
     {
         RaycastHit2D raycastHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, Vector2.down, 0.1f, slopeLayer);
+        if(raycastHit.collider!=null)
+            playerAnimator.SetTrigger("Slide");
         return raycastHit.collider != null;
     }
 

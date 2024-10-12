@@ -2809,6 +2809,10 @@ PrefabInstance:
       propertyPath: lightDownSpeed
       value: 0.003
       objectReference: {fileID: 0}
+    - target: {fileID: 4358769897971256299, guid: b91331129efcbb7409b6049d1cf53647, type: 3}
+      propertyPath: playerAnimator
+      value: 
+      objectReference: {fileID: 169733179}
     - target: {fileID: 4372164168336600883, guid: b91331129efcbb7409b6049d1cf53647, type: 3}
       propertyPath: m_Size.x
       value: 0.2
