@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using DefaultNamespace;
 using UnityEngine;
 
 public class FeatherManager : MonoBehaviour
@@ -11,6 +12,8 @@ public class FeatherManager : MonoBehaviour
     public float mdFeatherFuel;
     public float bgFeatherFuel;
     public float bigFeatherCost;
+    private Difficulty difficulty;
+    [SerializeField] private DifficultyS difficultyS;
 
     private void Start()
     {
@@ -19,6 +22,29 @@ public class FeatherManager : MonoBehaviour
         else
         {
             Debug.LogError("FeatherManager instance already exists!");
+        }
+    }
+
+    public void setDifficulty(Difficulty difficulty)
+    {
+        this.difficulty = difficulty;
+        switch (this.difficulty)
+        {
+            case Difficulty.Easy:
+                smFeatherFuel = difficultyS.SMLenghtEasy;
+                mdFeatherFuel = difficultyS.MDLenghtEasy;
+                bgFeatherFuel = difficultyS.BGLenghtEasy;
+                break;
+            case Difficulty.Mid:
+                smFeatherFuel = difficultyS.SMLenghtMid;
+                mdFeatherFuel = difficultyS.MDLenghtMid;
+                bgFeatherFuel = difficultyS.BGLenghtMid;
+                break;
+            case Difficulty.Hard:
+                smFeatherFuel = difficultyS.SMLenghtHard;
+                mdFeatherFuel = difficultyS.MDLenghtHard;
+                bgFeatherFuel = difficultyS.BGLenghtHard;
+                break;
         }
     }
 

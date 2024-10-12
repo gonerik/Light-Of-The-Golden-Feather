@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Net;
+using Unity.VisualScripting;
 using UnityEngine;
 
 using UnityEngine;
@@ -53,7 +54,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void lightDown()
     {
-        auraScale -= lightDownSpeed;
+        if(auraScale>0)
+            auraScale -= lightDownSpeed;
     }
 
     private void Update()
@@ -61,6 +63,7 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             lockPlayer = !lockPlayer;
+            Cursor.lockState = !lockPlayer ? CursorLockMode.Locked : CursorLockMode.None;
             settingsMenu.SetActive(lockPlayer);
 
         }
@@ -105,6 +108,7 @@ public class PlayerMovement : MonoBehaviour
         instance.gameObject.transform.position = respawn.transform.position;
         auraScale = respawn.startAura;
         lockPlayer = false;
+        bigFeatherTaken = false;
         FindObjectOfType<cameraManagerScr>().ResetToFirst();
         FeatherManager.restart();
     }
