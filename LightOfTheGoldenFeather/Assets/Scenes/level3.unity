@@ -3997,6 +3997,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2384371847758214429, guid: a2617117e388d8648b7d269b6e929627, type: 3}
+      propertyPath: difficultyS
+      value: 
+      objectReference: {fileID: 11400000, guid: 1da79e25d43f8c7479b610a474ed143d, type: 2}
+    - target: {fileID: 2384371847758214429, guid: a2617117e388d8648b7d269b6e929627, type: 3}
       propertyPath: bigFeatherCost
       value: 0.25
       objectReference: {fileID: 0}
