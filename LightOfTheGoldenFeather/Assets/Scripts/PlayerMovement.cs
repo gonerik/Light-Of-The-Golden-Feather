@@ -30,7 +30,7 @@ public class PlayerMovement : MonoBehaviour
     private bool canJump;
     [SerializeField] private float jumpDelay = 0.2f;
     private bool bigFeatherTaken;
-    
+    bool dead = false;
     private void Awake()
     {
         playerLight = GetComponentInChildren<PlayersLight>();
@@ -58,55 +58,68 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (!dead)
         {
-            lockPlayer = !lockPlayer;
-            settingsMenu.SetActive(lockPlayer);
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                lockPlayer = !lockPlayer;
+                settingsMenu.SetActive(lockPlayer);
 
+            }
+
+            if (lockPlayer || checkSlope())
+            {
+                return;
+            }
+            if (auraScale <= 0)
+            {
+                lockPlayer = true;
+                StartCoroutine(GameOver());
+            }
+            else
+            {
+                //playerLight.gameObject.transform.localScale = new Vector3(auraScale*6, auraScale*4, 0);
+            }
+            horizontalInput = Input.GetAxis("Horizontal");
+            //Flip player when moving left-right
+            if (horizontalInput > 0.01f)
+                transform.localScale = Vector3.one;
+            else if (horizontalInput < -0.01f)
+                transform.localScale = new Vector3(-1, 1, 1);
+
+            //Set animator parameters
+            // anim.SetBool("run", horizontalInput != 0);
+            // anim.SetBool("grounded", isGrounded());
+
+            //Wall jump logic
+            body.gravityScale = 7;
+
+            if (Input.GetKeyDown(KeyCode.Space))
+                Jump();
+
+            body.velocity = new Vector2(horizontalInput * speed, body.velocity.y);
         }
-
-        if (lockPlayer || checkSlope()) 
-        {
-            return;
-        }
-        if (auraScale <= 0)
-        {
-            lockPlayer = true;
-            StartCoroutine(GameOver());
-        }
-        else
-        {
-            //playerLight.gameObject.transform.localScale = new Vector3(auraScale*6, auraScale*4, 0);
-        }
-        horizontalInput = Input.GetAxis("Horizontal");
-        //Flip player when moving left-right
-        if (horizontalInput > 0.01f)
-            transform.localScale = Vector3.one;
-        else if (horizontalInput < -0.01f)
-            transform.localScale = new Vector3(-1, 1, 1);
-
-        //Set animator parameters
-        // anim.SetBool("run", horizontalInput != 0);
-        // anim.SetBool("grounded", isGrounded());
-
-        //Wall jump logic
-        body.gravityScale = 7;
-
-        if (Input.GetKeyDown(KeyCode.Space))
-            Jump();
-        
-        body.velocity = new Vector2(horizontalInput * speed, body.velocity.y);
-
     }
 
     public IEnumerator GameOver()
     {
-        yield return new WaitForSeconds(2f);
+        if (!dead)
+        {
+            dead = true;
+            yield return new WaitForSeconds(2f);
+            dieInstantly();
+        }
+    }
+
+    public void dieInstantly()
+    {
         instance.gameObject.transform.position = respawn.transform.position;
         auraScale = respawn.startAura;
+        bigFeatherTaken = false;
         lockPlayer = false;
         FindObjectOfType<cameraManagerScr>().ResetToFirst();
         FeatherManager.restart();
+        dead = false;
     }
 
     private void Jump()
