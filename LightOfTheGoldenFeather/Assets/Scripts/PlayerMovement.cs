@@ -60,15 +60,13 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            lockPlayer = !lockPlayer;
+            settingsMenu.SetActive(lockPlayer);
+        }
         if (!dead)
         {
-            if (Input.GetKeyDown(KeyCode.Escape))
-            {
-                lockPlayer = !lockPlayer;
-                settingsMenu.SetActive(lockPlayer);
-            }
-            
-
             if (lockPlayer || checkSlope())
             {
                 return;
