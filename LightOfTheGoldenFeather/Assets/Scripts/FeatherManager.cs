@@ -18,6 +18,7 @@ public class FeatherManager : MonoBehaviour
 
     private void Start()
     {
+        difficulty = Difficulty.Mid;
         if(instance == null)
             instance = this;
         else
@@ -59,5 +60,9 @@ public class FeatherManager : MonoBehaviour
             i.stateRenderer(true);
         }
     }
-    
+
+    public void reset()
+    {
+        feathers.Clear();
+    }
 }

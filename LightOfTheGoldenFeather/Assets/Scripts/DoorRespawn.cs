@@ -11,6 +11,7 @@ public class DoorRespawn : MonoBehaviour
         {
             PlayerMovement.instance.setRespawn(this);
             PlayerMovement.instance.setLockPlayer(false);
+            SettingsMenu.setSlider(SettingsMenu.difficulty);
         }
     }
 }

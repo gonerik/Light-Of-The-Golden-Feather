@@ -10,6 +10,7 @@ public class DoorExit : MonoBehaviour
     {
         if (other.tag == "Player")
         {
+            FeatherManager.instance.reset();
             SceneManager.LoadSceneAsync(sceneID);
         }
     }

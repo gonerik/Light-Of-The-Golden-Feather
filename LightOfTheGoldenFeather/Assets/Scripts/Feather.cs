@@ -25,4 +25,5 @@ public abstract class Feather : MonoBehaviour
         light.enabled = state;
         
     }
+    
 }
