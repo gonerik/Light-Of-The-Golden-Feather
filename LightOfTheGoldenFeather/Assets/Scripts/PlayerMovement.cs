@@ -109,6 +109,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void dieInstantly()
     {
+        
         playerAnimator.SetTrigger("Respawn");
         body.velocity = new Vector2(0, 0);
         instance.gameObject.transform.position = respawn.transform.position;
@@ -117,6 +118,7 @@ public class PlayerMovement : MonoBehaviour
         FindObjectOfType<cameraManagerScr>().ResetToFirst();
         FeatherManager.restart();
         lockPlayer = false;
+        playerAnimator.ResetTrigger("Respawn");
     }
 
     private void Jump()
