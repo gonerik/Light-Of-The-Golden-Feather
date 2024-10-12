@@ -125,7 +125,7 @@ public class PlayerMovement : MonoBehaviour
             body.velocity = new Vector2(body.velocity.x, jumpPower);
             
         }
-        else if (bigFeatherTaken)
+        if (bigFeatherTaken)
         {
             auraScale -= bigFeatherCost;
             body.velocity = new Vector2(body.velocity.x, jumpPower);
