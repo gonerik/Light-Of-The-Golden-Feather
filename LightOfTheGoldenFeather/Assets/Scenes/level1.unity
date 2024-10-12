@@ -5181,7 +5181,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1522994465325164432, guid: eb62093dc8b87714caf9260ef60006fe, type: 3}
       propertyPath: instakill
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4058277154982853171, guid: eb62093dc8b87714caf9260ef60006fe, type: 3}
       propertyPath: m_FlipX
