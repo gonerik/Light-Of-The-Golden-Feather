@@ -17,7 +17,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private GameObject settingsMenu;
     private Rigidbody2D body;
     private DoorRespawn respawn;
-    private float auraScale = 1;
+    public float auraScale = 1;
     // private Animator anim;
     private BoxCollider2D boxCollider;
     private float jumpCooldown;
