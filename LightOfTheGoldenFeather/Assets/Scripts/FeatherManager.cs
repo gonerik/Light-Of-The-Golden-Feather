@@ -14,6 +14,7 @@ public class FeatherManager : MonoBehaviour
     public float bigFeatherCost;
     private Difficulty difficulty;
     [SerializeField] private DifficultyS difficultyS;
+    
 
     private void Start()
     {
@@ -23,6 +24,9 @@ public class FeatherManager : MonoBehaviour
         {
             Debug.LogError("FeatherManager instance already exists!");
         }
+        smFeatherFuel = difficultyS.SMLenghtMid;
+        mdFeatherFuel = difficultyS.MDLenghtMid;
+        bgFeatherFuel = difficultyS.BGLenghtMid;
     }
 
     public void setDifficulty(Difficulty difficulty)

@@ -62,9 +62,6 @@ public class PlayerMovement : MonoBehaviour
     {
         if (!dead)
         {
-            lockPlayer = !lockPlayer;
-            Cursor.lockState = !lockPlayer ? CursorLockMode.Locked : CursorLockMode.None;
-            settingsMenu.SetActive(lockPlayer);
             if (Input.GetKeyDown(KeyCode.Escape))
             {
                 lockPlayer = !lockPlayer;

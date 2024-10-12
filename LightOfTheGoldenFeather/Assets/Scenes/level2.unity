@@ -619,6 +619,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9b75ee6cc640ce4e93e819ed4c77e64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  instakill: 0
 --- !u!61 &561316830
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1929,6 +1930,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9b75ee6cc640ce4e93e819ed4c77e64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  instakill: 0
 --- !u!61 &1127011090
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2260,6 +2262,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9b75ee6cc640ce4e93e819ed4c77e64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  instakill: 0
 --- !u!61 &1219318471
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3128,6 +3131,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9b75ee6cc640ce4e93e819ed4c77e64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  instakill: 0
 --- !u!61 &1457835559
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4555,6 +4559,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7730915273257459618, guid: 8f544bc5630009d4aafea5a7fba96add, type: 3}
+      propertyPath: sceneID
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7876126895845348171, guid: 8f544bc5630009d4aafea5a7fba96add, type: 3}
       propertyPath: m_Name
       value: DoorExit
