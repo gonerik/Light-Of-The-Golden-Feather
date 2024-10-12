@@ -3288,6 +3288,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 4358769897971256299, guid: b91331129efcbb7409b6049d1cf53647, type: 3}
+      propertyPath: jumpPower
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4358769897971256299, guid: b91331129efcbb7409b6049d1cf53647, type: 3}
       propertyPath: settingsMenu
       value: 
       objectReference: {fileID: 1385536559}

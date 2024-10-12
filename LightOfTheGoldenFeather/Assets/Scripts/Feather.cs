@@ -12,10 +12,10 @@ public abstract class Feather : MonoBehaviour
     private void Start()
     { 
         FeatherManager.feathers.Add(this);
-        particle = GetComponentInChildren<ParticleSystem>();
-        renderer = GetComponentInChildren<SpriteRenderer>();
+        particle =transform.GetChild(0).transform.GetComponentInChildren<ParticleSystem>();
+        renderer = transform.GetChild(0).transform.GetComponentInChildren<SpriteRenderer>();
         collider = GetComponent<Collider2D>();
-        light = GetComponentInChildren<Light2D>();
+        light = transform.GetChild(0).transform.GetComponentInChildren<Light2D>();
     }
 
     public void stateRenderer(bool state)
