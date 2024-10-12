@@ -2746,6 +2746,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4358769897971256299, guid: b91331129efcbb7409b6049d1cf53647, type: 3}
+      propertyPath: speed
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4358769897971256299, guid: b91331129efcbb7409b6049d1cf53647, type: 3}
+      propertyPath: jumpPower
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4358769897971256299, guid: b91331129efcbb7409b6049d1cf53647, type: 3}
+      propertyPath: lightDownSpeed
+      value: 0.003
+      objectReference: {fileID: 0}
     - target: {fileID: 5968388331221753979, guid: b91331129efcbb7409b6049d1cf53647, type: 3}
       propertyPath: m_LocalPosition.x
       value: -14.1
