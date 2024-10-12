@@ -91,26 +91,12 @@ public class PlayerMovement : MonoBehaviour
         // anim.SetBool("grounded", isGrounded());
 
         //Wall jump logic
-        if (jumpCooldown > 0.2f)
-        {
-            body.velocity = new Vector2(horizontalInput * speed, body.velocity.y);
+        body.gravityScale = 7;
 
-            // if (onWall() && !isGrounded())
-            // {
-            //     body.gravityScale = 0;
-            //     body.velocity = Vector2.zero;
-            // }
-            // else
-                body.gravityScale = 7;
-
-            if (Input.GetKeyDown(KeyCode.Space))
-                Jump();
-        }
-        else
-            jumpCooldown += Time.deltaTime;
-        body.velocity = new Vector2(horizontalInput * speed, body.velocity.y);
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
             Jump();
+        
+        body.velocity = new Vector2(horizontalInput * speed, body.velocity.y);
 
     }
 
@@ -148,11 +134,10 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.layer == 7)
+        if (collision.gameObject.layer==7)
         {
             StartCoroutine(Delay());
             midFeatherTaken = false;
-            Debug.Log("Ground touched");
         }
 
         
