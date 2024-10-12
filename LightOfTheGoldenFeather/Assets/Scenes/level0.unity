@@ -907,22 +907,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4356347350566536793, guid: 6bb1225951b2b1e428de8e34c4a60d18, type: 3}
-      propertyPath: orthographic size
-      value: 16.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4356347350566536793, guid: 6bb1225951b2b1e428de8e34c4a60d18, type: 3}
-      propertyPath: m_BackGroundColor.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4356347350566536793, guid: 6bb1225951b2b1e428de8e34c4a60d18, type: 3}
-      propertyPath: m_BackGroundColor.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4356347350566536793, guid: 6bb1225951b2b1e428de8e34c4a60d18, type: 3}
-      propertyPath: m_BackGroundColor.r
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4540389073638560934, guid: 6bb1225951b2b1e428de8e34c4a60d18, type: 3}
       propertyPath: m_Name
       value: Main Camera
@@ -1562,6 +1546,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9b75ee6cc640ce4e93e819ed4c77e64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  instakill: 0
 --- !u!61 &1127011090
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2417,6 +2402,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9b75ee6cc640ce4e93e819ed4c77e64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  instakill: 0
 --- !u!61 &1457835559
 BoxCollider2D:
   m_ObjectHideFlags: 0
