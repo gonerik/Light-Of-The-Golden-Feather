@@ -70,9 +70,10 @@ public class PlayerMovement : MonoBehaviour
     {
         if (lockPlayer || checkSlope())
         {
+            playerAnimator.SetTrigger("Slide");
             return;
         }
-
+        playerAnimator.ResetTrigger("Slide");
         horizontalInput = Input.GetAxis("Horizontal");
         if (Math.Abs(horizontalInput) > 0.01f)
         {
@@ -154,8 +155,6 @@ public class PlayerMovement : MonoBehaviour
     private bool checkSlope()
     {
         RaycastHit2D raycastHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, Vector2.down, 0.1f, slopeLayer);
-        if(raycastHit.collider!=null)
-            playerAnimator.SetTrigger("Slide");
         return raycastHit.collider != null;
     }
 

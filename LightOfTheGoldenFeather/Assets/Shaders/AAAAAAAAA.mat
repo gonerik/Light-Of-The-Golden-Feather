@@ -41,7 +41,7 @@ Material:
     - _opacity: 0
     - _ring1Size: 0.84
     - _ring2Size: 1.36
-    - _ringSize: 0.6495997
+    - _ringSize: 0.6723998
     m_Colors:
     - _color: {r: 1, g: 0.89388806, b: 0.7783019, a: 1}
     - _pos1: {r: 0, g: 0, b: 0, a: 0}
@@ -49,5 +49,5 @@ Material:
     - _pos3: {r: 0, g: 0, b: 0, a: 0}
     - _pos4: {r: 0, g: 0, b: 0, a: 0}
     - _pos5: {r: 0, g: 0, b: 0, a: 0}
-    - _position: {r: 0.06436163, g: 0.7844625, b: 0, a: 0}
+    - _position: {r: 0.26770297, g: 0.7844626, b: 0, a: 0}
   m_BuildTextureStacks: []
