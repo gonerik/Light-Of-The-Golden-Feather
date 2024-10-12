@@ -12,6 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3a34575e50258042bf13055888b27fc, type: 3}
   m_Name: Level1SO
   m_EditorClassIdentifier: 
-  SMLenght: 0
-  MDLenght: 0
-  BGLenght: 0
+  SMLenghtEasy: 1.3
+  MDLenghtEasy: 2
+  BGLenghtEasy: 5
+  SMLenghtMid: 1
+  MDLenghtMid: 1.6
+  BGLenghtMid: 3.5
+  SMLenghtHard: 0.7
+  MDLenghtHard: 1
+  BGLenghtHard: 2.6

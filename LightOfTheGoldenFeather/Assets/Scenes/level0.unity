@@ -1074,6 +1074,10 @@ PrefabInstance:
       propertyPath: difficultyS
       value: 
       objectReference: {fileID: 11400000, guid: 501a6ba41d4ff9946af192bddc20b4e8, type: 2}
+    - target: {fileID: 2384371847758214429, guid: a2617117e388d8648b7d269b6e929627, type: 3}
+      propertyPath: bigFeatherCost
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 3444767285413412789, guid: a2617117e388d8648b7d269b6e929627, type: 3}
       propertyPath: m_LocalPosition.x
       value: 12.733442
@@ -2474,7 +2478,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9b75ee6cc640ce4e93e819ed4c77e64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  instakill: 0
+  instakill: 1
 --- !u!61 &1457835559
 BoxCollider2D:
   m_ObjectHideFlags: 0

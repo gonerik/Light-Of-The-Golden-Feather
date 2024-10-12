@@ -65,50 +65,43 @@ public class PlayerMovement : MonoBehaviour
             lockPlayer = !lockPlayer;
             settingsMenu.SetActive(lockPlayer);
         }
-        if (!dead)
+        if (lockPlayer || checkSlope())
         {
-            if (lockPlayer || checkSlope())
-            {
-                return;
-            }
-            if (auraScale <= 0)
-            {
-                lockPlayer = true;
-                StartCoroutine(GameOver());
-            }
-            else
-            {
-                //playerLight.gameObject.transform.localScale = new Vector3(auraScale*6, auraScale*4, 0);
-            }
-            horizontalInput = Input.GetAxis("Horizontal");
-            //Flip player when moving left-right
-            if (horizontalInput > 0.01f)
-                transform.localScale = Vector3.one;
-            else if (horizontalInput < -0.01f)
-                transform.localScale = new Vector3(-1, 1, 1);
-
-            //Set animator parameters
-            // anim.SetBool("run", horizontalInput != 0);
-            // anim.SetBool("grounded", isGrounded());
-
-            //Wall jump logic
-            body.gravityScale = 7;
-
-            if (Input.GetKeyDown(KeyCode.Space))
-                Jump();
-
-            body.velocity = new Vector2(horizontalInput * speed, body.velocity.y);
+            return;
         }
+        if (auraScale <= 0 && !lockPlayer)
+        {
+            StartCoroutine(GameOver());
+        }
+        else
+        {
+            //playerLight.gameObject.transform.localScale = new Vector3(auraScale*6, auraScale*4, 0);
+        }
+        horizontalInput = Input.GetAxis("Horizontal");
+        //Flip player when moving left-right
+        if (horizontalInput > 0.01f)
+            transform.localScale = Vector3.one;
+        else if (horizontalInput < -0.01f)
+            transform.localScale = new Vector3(-1, 1, 1);
+
+        //Set animator parameters
+        // anim.SetBool("run", horizontalInput != 0);
+        // anim.SetBool("grounded", isGrounded());
+
+        //Wall jump logic
+        body.gravityScale = 7;
+
+        if (Input.GetKeyDown(KeyCode.Space))
+            Jump();
+
+        body.velocity = new Vector2(horizontalInput * speed, body.velocity.y);
     }
 
     public IEnumerator GameOver()
     {
-        if (!dead)
-        {
-            dead = true;
-            yield return new WaitForSeconds(2f);
-            dieInstantly();
-        }
+        lockPlayer = true;
+        yield return new WaitForSeconds(2f);
+        dieInstantly();
     }
 
     public void dieInstantly()
@@ -116,11 +109,9 @@ public class PlayerMovement : MonoBehaviour
         instance.gameObject.transform.position = respawn.transform.position;
         auraScale = respawn.startAura;
         bigFeatherTaken = false;
-        lockPlayer = false;
-        bigFeatherTaken = false;
         FindObjectOfType<cameraManagerScr>().ResetToFirst();
         FeatherManager.restart();
-        dead = false;
+        lockPlayer = false;
     }
 
     private void Jump()
