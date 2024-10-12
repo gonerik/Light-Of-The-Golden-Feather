@@ -76,7 +76,7 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            playerLight.gameObject.transform.localScale = new Vector3(auraScale*6, auraScale*4, 0);
+            //playerLight.gameObject.transform.localScale = new Vector3(auraScale*6, auraScale*4, 0);
         }
         horizontalInput = Input.GetAxis("Horizontal");
         //Flip player when moving left-right
@@ -124,7 +124,7 @@ public class PlayerMovement : MonoBehaviour
             body.velocity = new Vector2(body.velocity.x, jumpPower);
             
         }
-        else if (bigFeatherTaken)
+        if (bigFeatherTaken)
         {
             auraScale -= FeatherManager.instance.bigFeatherCost;
             body.velocity = new Vector2(body.velocity.x, jumpPower);
