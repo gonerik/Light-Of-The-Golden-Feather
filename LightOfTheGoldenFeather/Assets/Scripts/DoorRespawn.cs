@@ -10,6 +10,7 @@ public class DoorRespawn : MonoBehaviour
         if (other.tag == "Player")
         {
             PlayerMovement.instance.setRespawn(this);
+            PlayerMovement.instance.setLockPlayer(false);
         }
     }
 }

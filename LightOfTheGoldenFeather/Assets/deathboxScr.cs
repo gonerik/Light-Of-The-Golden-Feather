@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class deathboxScr : MonoBehaviour
 {
-    [SerializeField] bool instakill;
+    [SerializeField] private bool instakill;
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "Player")

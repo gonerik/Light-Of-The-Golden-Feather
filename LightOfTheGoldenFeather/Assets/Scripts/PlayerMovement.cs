@@ -49,6 +49,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
+        body.gravityScale = 7;
         InvokeRepeating("lightDown", 0f, 0.03f);
     }
 
@@ -56,6 +57,10 @@ public class PlayerMovement : MonoBehaviour
     {
         if(auraScale>0)
             auraScale -= lightDownSpeed;
+        else
+        {
+            StartCoroutine(GameOver());
+        }
     }
 
     private void Update()
@@ -69,14 +74,6 @@ public class PlayerMovement : MonoBehaviour
         {
             return;
         }
-        if (auraScale <= 0 && !lockPlayer)
-        {
-            StartCoroutine(GameOver());
-        }
-        else
-        {
-            //playerLight.gameObject.transform.localScale = new Vector3(auraScale*6, auraScale*4, 0);
-        }
         horizontalInput = Input.GetAxis("Horizontal");
         //Flip player when moving left-right
         if (horizontalInput > 0.01f)
@@ -89,7 +86,7 @@ public class PlayerMovement : MonoBehaviour
         // anim.SetBool("grounded", isGrounded());
 
         //Wall jump logic
-        body.gravityScale = 7;
+        
 
         if (Input.GetKeyDown(KeyCode.Space))
             Jump();
@@ -99,13 +96,20 @@ public class PlayerMovement : MonoBehaviour
 
     public IEnumerator GameOver()
     {
+        if (lockPlayer) yield break;
         lockPlayer = true;
         yield return new WaitForSeconds(2f);
         dieInstantly();
     }
 
+    public void setLockPlayer(bool value)
+    {
+        lockPlayer = value;
+    }
+
     public void dieInstantly()
     {
+        body.velocity = new Vector2(0, 0);
         instance.gameObject.transform.position = respawn.transform.position;
         auraScale = respawn.startAura;
         bigFeatherTaken = false;
@@ -140,7 +144,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (collision.gameObject.layer==7)
         {
-            StartCoroutine(Delay());
+            Delay();
             midFeatherTaken = false;
         }
 
@@ -160,9 +164,9 @@ public class PlayerMovement : MonoBehaviour
         
         return raycastHit.collider != null;
     }
-    IEnumerator Delay()
+    void Delay()
     {
-        yield return new WaitForSeconds(jumpDelay);
+        // yield return new WaitForSeconds(jumpDelay);
         canJump = true;
     }
 
