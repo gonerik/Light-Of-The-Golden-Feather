@@ -1,18 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
+using DefaultNamespace;
 using UnityEngine;
 
-public class MDFeather : MonoBehaviour
+public class MDFeather : Feather
 {
-    private IEnumerator OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "Player")
         {
             gameObject.SetActive(false);
-            PlayerMovement.instance.collectFeather(2f);
+            PlayerMovement.instance.collectFeather(FeatherManager.instance.mdFeatherFuel);
             PlayerMovement.instance.midFeatherTaken = true;
-            yield return new WaitForSeconds(0.2f);
-            Destroy(gameObject);
             
         }
     }

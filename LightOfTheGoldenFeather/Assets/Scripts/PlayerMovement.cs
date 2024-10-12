@@ -75,7 +75,10 @@ public class PlayerMovement : MonoBehaviour
             lockPlayer = true;
             StartCoroutine(GameOver());
         }
-        playerLight.gameObject.transform.localScale = new Vector3(auraScale*6, auraScale*4, 0);
+        else
+        {
+            playerLight.gameObject.transform.localScale = new Vector3(auraScale*6, auraScale*4, 0);
+        }
         horizontalInput = Input.GetAxis("Horizontal");
         //Flip player when moving left-right
         if (horizontalInput > 0.01f)
@@ -118,6 +121,7 @@ public class PlayerMovement : MonoBehaviour
         auraScale = respawn.startAura;
         lockPlayer = false;
         FindObjectOfType<cameraManagerScr>().ResetToFirst();
+        FeatherManager.restart();
     }
 
     private void Jump()
