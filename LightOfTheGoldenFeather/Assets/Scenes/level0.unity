@@ -907,22 +907,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4356347350566536793, guid: 6bb1225951b2b1e428de8e34c4a60d18, type: 3}
-      propertyPath: orthographic size
-      value: 16.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4356347350566536793, guid: 6bb1225951b2b1e428de8e34c4a60d18, type: 3}
-      propertyPath: m_BackGroundColor.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4356347350566536793, guid: 6bb1225951b2b1e428de8e34c4a60d18, type: 3}
-      propertyPath: m_BackGroundColor.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4356347350566536793, guid: 6bb1225951b2b1e428de8e34c4a60d18, type: 3}
-      propertyPath: m_BackGroundColor.r
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4540389073638560934, guid: 6bb1225951b2b1e428de8e34c4a60d18, type: 3}
       propertyPath: m_Name
       value: Main Camera

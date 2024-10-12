@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MDFeather : Feather
 {
+    [SerializeField] private AudioSource mdSFX;
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "Player")
@@ -11,6 +12,7 @@ public class MDFeather : Feather
             PlayerMovement.instance.collectFeather(FeatherManager.instance.mdFeatherFuel);
             PlayerMovement.instance.midFeatherTaken = true;
             particle.Play();
+            mdSFX.Play();
             stateRenderer(false);
             
         }
