@@ -11,7 +11,6 @@ public class BGFeather : Feather
         {
             PlayerMovement.instance.collectFeather(FeatherManager.instance.bgFeatherFuel);
             PlayerMovement.instance.bigFeatherTaken = true;
-            gameObject.SetActive(false);
             particle.Play();
             stateRenderer(false);
         }

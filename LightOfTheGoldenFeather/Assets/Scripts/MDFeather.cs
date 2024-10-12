@@ -8,7 +8,6 @@ public class MDFeather : Feather
     {
         if (other.tag == "Player")
         {
-            gameObject.SetActive(false);
             PlayerMovement.instance.collectFeather(FeatherManager.instance.mdFeatherFuel);
             PlayerMovement.instance.midFeatherTaken = true;
             particle.Play();
