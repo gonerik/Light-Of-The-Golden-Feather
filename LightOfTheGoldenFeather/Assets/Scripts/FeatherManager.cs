@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using DefaultNamespace;
 using UnityEngine;
 
 public class FeatherManager : MonoBehaviour
@@ -26,7 +25,7 @@ public class FeatherManager : MonoBehaviour
     {
         foreach (var i in feathers)
         {
-            i.gameObject.SetActive(true);
+            i.stateRenderer(true);
         }
     }
     
