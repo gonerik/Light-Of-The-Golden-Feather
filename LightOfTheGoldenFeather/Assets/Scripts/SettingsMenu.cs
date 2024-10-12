@@ -82,5 +82,10 @@ public class SettingsMenu : MonoBehaviour
                 break;
         }
     }
+
+    public void exit()
+    {
+        Application.Quit();
+    }
 }
 
