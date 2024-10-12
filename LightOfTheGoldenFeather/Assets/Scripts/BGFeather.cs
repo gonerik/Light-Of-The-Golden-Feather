@@ -9,8 +9,9 @@ public class BGFeather : MonoBehaviour
     {
         if (other.tag == "Player")
         {
+            PlayerMovement.instance.collectFeather(2f);
+            PlayerMovement.instance.bigFeatherTaken = true;
             Destroy(gameObject);
-            PlayerMovement.instance.collectFeather(3f);
         }
     }
 }

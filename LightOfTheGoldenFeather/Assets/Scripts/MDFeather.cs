@@ -8,10 +8,12 @@ public class MDFeather : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            Destroy(gameObject);
+            gameObject.SetActive(false);
             PlayerMovement.instance.collectFeather(2f);
             PlayerMovement.instance.midFeatherTaken = true;
             yield return new WaitForSeconds(0.2f);
+            PlayerMovement.instance.midFeatherTaken = false;
+            Destroy(gameObject);
             
         }
     }

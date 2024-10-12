@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float speed = 10;
     [SerializeField] private float jumpPower = 5;
     [SerializeField] private float lightDownSpeed = 0.003f;
-    [SerializeField] private LayerMask groundLayer;
+    [SerializeField] private LayerMask groundLayer ;
     [SerializeField] private LayerMask wallLayer;
     [SerializeField] private GameObject settingsMenu;
     private Rigidbody2D body;
@@ -23,11 +23,13 @@ public class PlayerMovement : MonoBehaviour
     private float jumpCooldown;
     private float horizontalInput;
     private PlayersLight playerLight;
-    public bool midFeatherTaken = false;
-    private bool lockPlayer = false;
+    public bool midFeatherTaken;
+    private bool lockPlayer;
     private bool flying = false;
-    bool canJump;
-    float jumpDelay;
+    private bool canJump;
+    [SerializeField] private float jumpDelay = 0.2f;
+    public bool bigFeatherTaken;
+    [SerializeField] private float bigFeatherCost;
     
     private void Awake()
     {
@@ -113,43 +115,35 @@ public class PlayerMovement : MonoBehaviour
 
     private void Jump()
     {
-        if (isGrounded())
+        if (isGrounded() && canJump)
         {
+            canJump = false;
             body.velocity = new Vector2(body.velocity.x, jumpPower);
             // anim.SetTrigger("jump");
         }
 
-        if (midFeatherTaken)
+        else if (midFeatherTaken)
         {
             midFeatherTaken = false;
             body.velocity = new Vector2(body.velocity.x, jumpPower);
             
         }
-
-        
-        // else if (onWall() && !isGrounded())
-        // {
-        //     if (horizontalInput == 0)
-        //     {
-        //         body.velocity = new Vector2(-Mathf.Sign(transform.localScale.x) * 10, 0);
-        //         transform.localScale = new Vector3(-Mathf.Sign(transform.localScale.x), transform.localScale.y, transform.localScale.z);
-        //     }
-        //     else
-        //         body.velocity = new Vector2(-Mathf.Sign(transform.localScale.x) * 3, 6);
-        //
-        //     wallJumpCooldown = 0;
-        // }
+        else if (bigFeatherTaken)
+        {
+            auraScale -= bigFeatherCost;
+            body.velocity = new Vector2(body.velocity.x, jumpPower);
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Ground"))
-            ResetJump();
-    }
-    void ResetJump()
-    {
-        canJump = true;
-        jumpDelay = 0;
+        if (collision.gameObject.layer == 7)
+        {
+            StartCoroutine(Delay());
+            Debug.Log("Ground touched");
+        }
+
+        
     }
 
     private bool isGrounded()
@@ -158,15 +152,14 @@ public class PlayerMovement : MonoBehaviour
         
         return raycastHit.collider != null;
     }
+    IEnumerator Delay()
+    {
+        yield return new WaitForSeconds(jumpDelay);
+        canJump = true;
+    }
 
   
-
-    private bool onWall()
-    {
-        RaycastHit2D raycastHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, new Vector2(transform.localScale.x, 0), 0.1f, wallLayer);
-        // return raycastHit.collider != null;
-        return false;
-    }
+    
 
     public void collectFeather(float lenght)
     {
