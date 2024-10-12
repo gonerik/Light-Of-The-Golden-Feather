@@ -75,9 +75,9 @@ public class PlayerMovement : MonoBehaviour
         horizontalInput = Input.GetAxis("Horizontal");
         // Flip player when moving left-right
         if (horizontalInput > 0.01f)
-            transform.localScale = Vector3.one;
+            transform.localScale = new Vector3(Math.Abs(transform.localScale.x), transform.localScale.y, 1);
         else if (horizontalInput < -0.01f)
-            transform.localScale = new Vector3(-1, 1, 1);
+            transform.localScale = new Vector3(Math.Abs(transform.localScale.x)*-1, transform.localScale.y, 1);
         
         body.velocity = new Vector2(horizontalInput * speed, body.velocity.y); // Frame rate independent movement
 
