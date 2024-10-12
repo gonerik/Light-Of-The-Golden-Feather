@@ -39,12 +39,12 @@ Material:
     m_Floats:
     - _ring1Size: 0.84
     - _ring2Size: 1.36
-    - _ringSize: 0.8411996
+    - _ringSize: 1.0345995
     m_Colors:
     - _pos1: {r: 0, g: 0, b: 0, a: 0}
     - _pos2: {r: 1.42, g: 0.99, b: 0, a: 0}
     - _pos3: {r: 0, g: 0, b: 0, a: 0}
     - _pos4: {r: 0, g: 0, b: 0, a: 0}
     - _pos5: {r: 0, g: 0, b: 0, a: 0}
-    - _position: {r: 0.1589682, g: 0.14151406, b: 0, a: 0}
+    - _position: {r: 1.6854748, g: 0.20282604, b: 0, a: 0}
   m_BuildTextureStacks: []
