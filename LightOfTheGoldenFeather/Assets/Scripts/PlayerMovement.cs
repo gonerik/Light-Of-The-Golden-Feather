@@ -108,7 +108,7 @@ public class PlayerMovement : MonoBehaviour
         body.velocity = new Vector2(horizontalInput * speed, body.velocity.y);
         if (Input.GetKey(KeyCode.Space))
             Jump();
-        
+
     }
 
     public IEnumerator GameOver()
