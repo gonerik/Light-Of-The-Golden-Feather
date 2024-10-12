@@ -86,7 +86,6 @@ public class PlayerMovement : MonoBehaviour
         //Set animator parameters
         // anim.SetBool("run", horizontalInput != 0);
         // anim.SetBool("grounded", isGrounded());
-<<<<<<< Updated upstream
 
         //Wall jump logic
         if (jumpCooldown > 0.2f)
@@ -107,11 +106,6 @@ public class PlayerMovement : MonoBehaviour
         else
             jumpCooldown += Time.deltaTime;
         
-=======
-        body.velocity = new Vector2(horizontalInput * speed, body.velocity.y);
-        if (Input.GetKey(KeyCode.Space))
-            Jump();
->>>>>>> Stashed changes
     }
 
     public IEnumerator GameOver()
