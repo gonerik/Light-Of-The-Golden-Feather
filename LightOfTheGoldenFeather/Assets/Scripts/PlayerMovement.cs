@@ -97,7 +97,7 @@ public class PlayerMovement : MonoBehaviour
             // else
                 body.gravityScale = 7;
 
-            if (Input.GetKey(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space))
                 Jump();
         }
         else
@@ -105,12 +105,13 @@ public class PlayerMovement : MonoBehaviour
         
     }
 
-    private IEnumerator GameOver()
+    public IEnumerator GameOver()
     {
         yield return new WaitForSeconds(2f);
         instance.gameObject.transform.position = respawn.transform.position;
         auraScale = respawn.startAura;
         lockPlayer = false;
+        FindObjectOfType<cameraManagerScr>().ResetToFirst();
     }
 
     private void Jump()

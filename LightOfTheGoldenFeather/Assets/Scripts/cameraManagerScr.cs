@@ -10,6 +10,12 @@ public class cameraManagerScr : MonoBehaviour
     {
         UpdateCams();
     }
+
+    public void ResetToFirst()
+    {
+        index = 0;
+        UpdateCams();
+    }
     void UpdateCams()
     {
         for (int i = 0; i < vCameras.Length; i++)
