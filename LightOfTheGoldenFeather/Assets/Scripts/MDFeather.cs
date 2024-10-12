@@ -12,7 +12,6 @@ public class MDFeather : MonoBehaviour
             PlayerMovement.instance.collectFeather(2f);
             PlayerMovement.instance.midFeatherTaken = true;
             yield return new WaitForSeconds(0.2f);
-            PlayerMovement.instance.midFeatherTaken = false;
             Destroy(gameObject);
             
         }

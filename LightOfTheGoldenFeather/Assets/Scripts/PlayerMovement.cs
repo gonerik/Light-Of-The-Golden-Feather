@@ -14,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float lightDownSpeed = 0.003f;
     [SerializeField] private LayerMask groundLayer ;
     [SerializeField] private LayerMask wallLayer;
+    [SerializeField] private LayerMask slopeLayer;
     [SerializeField] private GameObject settingsMenu;
     private Rigidbody2D body;
     private DoorRespawn respawn;
@@ -55,15 +56,17 @@ public class PlayerMovement : MonoBehaviour
     {
         auraScale -= lightDownSpeed;
     }
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             lockPlayer = !lockPlayer;
             settingsMenu.SetActive(lockPlayer);
-            
+
         }
-        if (lockPlayer)
+
+        if (lockPlayer || checkSlope()) 
         {
             return;
         }
@@ -83,6 +86,7 @@ public class PlayerMovement : MonoBehaviour
         //Set animator parameters
         // anim.SetBool("run", horizontalInput != 0);
         // anim.SetBool("grounded", isGrounded());
+<<<<<<< Updated upstream
 
         //Wall jump logic
         if (jumpCooldown > 0.2f)
@@ -103,6 +107,11 @@ public class PlayerMovement : MonoBehaviour
         else
             jumpCooldown += Time.deltaTime;
         
+=======
+        body.velocity = new Vector2(horizontalInput * speed, body.velocity.y);
+        if (Input.GetKey(KeyCode.Space))
+            Jump();
+>>>>>>> Stashed changes
     }
 
     public IEnumerator GameOver()
@@ -141,10 +150,18 @@ public class PlayerMovement : MonoBehaviour
         if (collision.gameObject.layer == 7)
         {
             StartCoroutine(Delay());
+            midFeatherTaken = false;
             Debug.Log("Ground touched");
         }
 
         
+    }
+
+    private bool checkSlope()
+    {
+        RaycastHit2D raycastHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, Vector2.down, 0.1f, slopeLayer);
+        
+        return raycastHit.collider != null;
     }
 
     private bool isGrounded()
