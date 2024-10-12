@@ -7,13 +7,37 @@ using TMPro.Examples;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class SettingsMenu : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI text;
+    public static Difficulty difficulty;
+    private static Slider slider;
+    
     private void Start()
     {
-        this.gameObject.SetActive(false);
+        slider = GetComponentInChildren<Slider>();
+        gameObject.SetActive(false);
+        setSlider(difficulty);
+        
+    }
+    
+
+    public static void setSlider(Difficulty value)
+    {
+        switch (value)
+        {
+            case Difficulty.Easy:
+                slider.value = 0;
+                break;
+            case Difficulty.Mid:
+                slider.value = 1;
+                break;
+            case Difficulty.Hard:
+                slider.value = 2;
+                break;
+        }
     }
 
     [SerializeField] private AudioMixer audioMixer;
@@ -57,6 +81,11 @@ public class SettingsMenu : MonoBehaviour
                 FeatherManager.instance.setDifficulty(Difficulty.Hard);
                 break;
         }
+    }
+
+    public void exit()
+    {
+        Application.Quit();
     }
 }
 
