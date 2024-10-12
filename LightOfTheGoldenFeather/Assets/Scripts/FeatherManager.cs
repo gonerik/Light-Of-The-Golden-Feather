@@ -10,6 +10,7 @@ public class FeatherManager : MonoBehaviour
     public float smFeatherFuel;
     public float mdFeatherFuel;
     public float bgFeatherFuel;
+    public float bigFeatherCost;
 
     private void Start()
     {

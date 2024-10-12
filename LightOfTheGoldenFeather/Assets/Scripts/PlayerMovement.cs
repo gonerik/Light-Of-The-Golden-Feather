@@ -29,8 +29,7 @@ public class PlayerMovement : MonoBehaviour
     private bool flying = false;
     private bool canJump;
     [SerializeField] private float jumpDelay = 0.2f;
-    public bool bigFeatherTaken;
-    [SerializeField] private float bigFeatherCost;
+    private bool bigFeatherTaken;
     
     private void Awake()
     {
@@ -127,7 +126,7 @@ public class PlayerMovement : MonoBehaviour
         }
         else if (bigFeatherTaken)
         {
-            auraScale -= bigFeatherCost;
+            auraScale -= FeatherManager.instance.bigFeatherCost;
             body.velocity = new Vector2(body.velocity.x, jumpPower);
         }
     }
@@ -174,5 +173,10 @@ public class PlayerMovement : MonoBehaviour
     public void setRespawn(DoorRespawn respawn)
     {
         this.respawn = respawn;
+    }
+
+    public void setBigFeatherTaken(bool value)
+    {
+        bigFeatherTaken = value;
     }
 }
