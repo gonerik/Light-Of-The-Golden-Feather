@@ -24,17 +24,13 @@ public class PlayerMovement : MonoBehaviour
     private BoxCollider2D boxCollider;
     private float jumpCooldown;
     private float horizontalInput;
-    private PlayersLight playerLight;
     public bool midFeatherTaken;
     private bool lockPlayer;
-    private bool flying = false;
     private bool canJump;
     [SerializeField] private float jumpDelay = 0.2f;
     private bool bigFeatherTaken;
-    bool dead = false;
     private void Awake()
     {
-        playerLight = GetComponentInChildren<PlayersLight>();
         //Grab references for rigidbody and animator from object
         body = GetComponent<Rigidbody2D>();
         // anim = GetComponent<Animator>();
