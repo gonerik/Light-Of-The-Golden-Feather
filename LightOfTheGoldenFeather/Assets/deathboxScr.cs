@@ -4,11 +4,19 @@ using UnityEngine;
 
 public class deathboxScr : MonoBehaviour
 {
+    [SerializeField] bool instakill;
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "Player")
         {
-            StartCoroutine(other.GetComponent<PlayerMovement>().GameOver());
+            if (instakill)
+            {
+                other.GetComponent<PlayerMovement>().dieInstantly();
+            }
+            else
+            {
+                StartCoroutine(other.GetComponent<PlayerMovement>().GameOver());
+            }
         }
     }
 }
