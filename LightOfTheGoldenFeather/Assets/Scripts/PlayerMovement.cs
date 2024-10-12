@@ -1,26 +1,21 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Net;
-using Unity.VisualScripting;
 using UnityEngine;
 
-using UnityEngine;
- 
 public class PlayerMovement : MonoBehaviour
 {
     public static PlayerMovement instance;
     [SerializeField] private float speed = 10;
     [SerializeField] private float jumpPower = 5;
     [SerializeField] private float lightDownSpeed = 0.003f;
-    [SerializeField] private LayerMask groundLayer ;
+    [SerializeField] private LayerMask groundLayer;
     [SerializeField] private LayerMask wallLayer;
     [SerializeField] private LayerMask slopeLayer;
     [SerializeField] private GameObject settingsMenu;
+
     private Rigidbody2D body;
     private DoorRespawn respawn;
     public float auraScale = 1;
-    // private Animator anim;
     private BoxCollider2D boxCollider;
     private float jumpCooldown;
     private float horizontalInput;
@@ -31,11 +26,10 @@ public class PlayerMovement : MonoBehaviour
     private bool bigFeatherTaken;
     private void Awake()
     {
-        //Grab references for rigidbody and animator from object
         body = GetComponent<Rigidbody2D>();
-        // anim = GetComponent<Animator>();
         boxCollider = GetComponent<BoxCollider2D>();
-        if(instance == null)
+        
+        if (instance == null)
             instance = this;
         else
         {
@@ -51,7 +45,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void lightDown()
     {
-        if(auraScale>0)
+        if (auraScale > 0)
             auraScale -= lightDownSpeed;
         else
         {
@@ -66,28 +60,27 @@ public class PlayerMovement : MonoBehaviour
             lockPlayer = !lockPlayer;
             settingsMenu.SetActive(lockPlayer);
         }
+        
+        if (Input.GetKeyDown(KeyCode.Space))
+            Jump();
+    }
+
+    private void FixedUpdate()
+    {
         if (lockPlayer || checkSlope())
         {
             return;
         }
+
         horizontalInput = Input.GetAxis("Horizontal");
-        //Flip player when moving left-right
+        // Flip player when moving left-right
         if (horizontalInput > 0.01f)
             transform.localScale = Vector3.one;
         else if (horizontalInput < -0.01f)
             transform.localScale = new Vector3(-1, 1, 1);
-
-        //Set animator parameters
-        // anim.SetBool("run", horizontalInput != 0);
-        // anim.SetBool("grounded", isGrounded());
-
-        //Wall jump logic
         
+        body.velocity = new Vector2(horizontalInput * speed, body.velocity.y); // Frame rate independent movement
 
-        if (Input.GetKeyDown(KeyCode.Space))
-            Jump();
-
-        body.velocity = new Vector2(horizontalInput * speed, body.velocity.y);
     }
 
     public IEnumerator GameOver()
@@ -119,15 +112,13 @@ public class PlayerMovement : MonoBehaviour
         if (isGrounded() && canJump)
         {
             canJump = false;
-            body.velocity = new Vector2(body.velocity.x, jumpPower);
+            body.velocity = new Vector2(body.velocity.x, jumpPower); // Jump logic remains the same
             // anim.SetTrigger("jump");
         }
-
         else if (midFeatherTaken)
         {
             midFeatherTaken = false;
             body.velocity = new Vector2(body.velocity.x, jumpPower);
-            
         }
         if (bigFeatherTaken)
         {
@@ -138,41 +129,34 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.layer==7)
+        if (collision.gameObject.layer == 7)
         {
             Delay();
             midFeatherTaken = false;
         }
-
-        
     }
 
     private bool checkSlope()
     {
         RaycastHit2D raycastHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, Vector2.down, 0.1f, slopeLayer);
-        
         return raycastHit.collider != null;
     }
 
     private bool isGrounded()
     {
         RaycastHit2D raycastHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, Vector2.down, 0.1f, groundLayer);
-        
         return raycastHit.collider != null;
     }
+
     void Delay()
     {
-        // yield return new WaitForSeconds(jumpDelay);
         canJump = true;
     }
 
-  
-    
-
-    public void collectFeather(float lenght)
+    public void collectFeather(float length)
     {
-        if(auraScale<lenght) 
-            auraScale = lenght;
+        if (auraScale < length)
+            auraScale = length;
     }
 
     public void setRespawn(DoorRespawn respawn)
