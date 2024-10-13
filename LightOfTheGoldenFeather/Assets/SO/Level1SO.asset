@@ -15,9 +15,9 @@ MonoBehaviour:
   SMLenghtEasy: 1.3
   MDLenghtEasy: 2
   BGLenghtEasy: 5
-  SMLenghtMid: 1
-  MDLenghtMid: 1.6
-  BGLenghtMid: 3.5
+  SMLenghtMid: 0.6
+  MDLenghtMid: 0.9
+  BGLenghtMid: 3.3
   SMLenghtHard: 0.7
   MDLenghtHard: 1
-  BGLenghtHard: 2.6
+  BGLenghtHard: 3

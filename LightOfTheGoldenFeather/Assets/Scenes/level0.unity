@@ -3333,6 +3333,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 348302426339143179, guid: 270c184ff5b149247a8784a537548370, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2065590917345589631, guid: 270c184ff5b149247a8784a537548370, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -4000,7 +4004,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7730915273257459618, guid: 8f544bc5630009d4aafea5a7fba96add, type: 3}
       propertyPath: sceneID
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7876126895845348171, guid: 8f544bc5630009d4aafea5a7fba96add, type: 3}
       propertyPath: m_Name
