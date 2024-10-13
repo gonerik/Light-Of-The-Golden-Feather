@@ -14,6 +14,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private GameObject settingsMenu;
     [SerializeField] private Animator playerAnimator;
 
+    [SerializeField] private AudioSource jmpUp;
+    [SerializeField] private AudioSource jmpDwn;
+    
     private Rigidbody2D body;
     private DoorRespawn respawn;
     public float auraScale = 1;
@@ -128,6 +131,7 @@ public class PlayerMovement : MonoBehaviour
             canJump = false;
             body.velocity = new Vector2(body.velocity.x, jumpPower); // Jump logic remains the same
             playerAnimator.SetTrigger("Jump");
+            jmpUp.Play();
             // anim.SetTrigger("jump");
         }
         else if (midFeatherTaken)
@@ -135,6 +139,7 @@ public class PlayerMovement : MonoBehaviour
             midFeatherTaken = false;
             body.velocity = new Vector2(body.velocity.x, jumpPower);
             playerAnimator.SetTrigger("Jump");
+            jmpUp.Play();
         }
         if (bigFeatherTaken)
         {
@@ -166,6 +171,11 @@ public class PlayerMovement : MonoBehaviour
 
     void Delay()
     {
+        if (canJump == false)
+        {
+            jmpDwn.Play();
+
+        }
         canJump = true;
     }
 
