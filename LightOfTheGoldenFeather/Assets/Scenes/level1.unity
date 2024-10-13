@@ -1616,9 +1616,9 @@ PolygonCollider2D:
       - {x: 0.6977226, y: 0.60740185}
       - {x: -0.24255583, y: 0.58136}
       - {x: -0.35330474, y: 0.5182869}
-      - {x: -0.5795599, y: 0.5041661}
+      - {x: -0.6765177, y: 0.50563574}
       - {x: -0.633946, y: 0.0868146}
-      - {x: -0.8134424, y: -0.043637753}
+      - {x: -0.5889084, y: -0.034819514}
       - {x: -0.6012581, y: -0.35001963}
       - {x: -0.22898114, y: -0.4299318}
       - {x: 0.17452759, y: -0.6208174}
@@ -2120,6 +2120,10 @@ PrefabInstance:
     - target: {fileID: 7361461501878743569, guid: eb62093dc8b87714caf9260ef60006fe, type: 3}
       propertyPath: m_Name
       value: deathbox
+      objectReference: {fileID: 0}
+    - target: {fileID: 8321934124239977899, guid: eb62093dc8b87714caf9260ef60006fe, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.52
       objectReference: {fileID: 0}
     - target: {fileID: 8321934124239977899, guid: eb62093dc8b87714caf9260ef60006fe, type: 3}
       propertyPath: m_LocalPosition.x
