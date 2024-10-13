@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Level3SO
   m_EditorClassIdentifier: 
   SMLenghtEasy: 1.3
-  MDLenghtEasy: 2.3
-  BGLenghtEasy: 3
-  SMLenghtMid: 1
-  MDLenghtMid: 1.7
-  BGLenghtMid: 2.5
+  MDLenghtEasy: 1.5
+  BGLenghtEasy: 2
+  SMLenghtMid: 0.8
+  MDLenghtMid: 1
+  BGLenghtMid: 1.1
   SMLenghtHard: 0.6
-  MDLenghtHard: 1.1
-  BGLenghtHard: 1.7
+  MDLenghtHard: 0.5
+  BGLenghtHard: 0.7
