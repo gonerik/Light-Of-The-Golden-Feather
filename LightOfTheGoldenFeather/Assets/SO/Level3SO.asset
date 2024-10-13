@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SMLenghtEasy: 1.3
   MDLenghtEasy: 1.5
-  BGLenghtEasy: 2
+  BGLenghtEasy: 3
   SMLenghtMid: 0.8
   MDLenghtMid: 1
-  BGLenghtMid: 1.1
+  BGLenghtMid: 3.5
   SMLenghtHard: 0.6
   MDLenghtHard: 0.5
-  BGLenghtHard: 0.7
+  BGLenghtHard: 3
