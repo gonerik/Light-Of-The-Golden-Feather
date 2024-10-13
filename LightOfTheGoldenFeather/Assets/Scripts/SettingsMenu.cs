@@ -14,7 +14,6 @@ public class SettingsMenu : MonoBehaviour
     [SerializeField] private TextMeshProUGUI text;
     public static Difficulty difficulty;
     private static Slider slider;
-    
     private void Start()
     {
         slider = GetComponentInChildren<Slider>();
@@ -50,7 +49,6 @@ public class SettingsMenu : MonoBehaviour
     {
         Screen.fullScreen = isFullScreen;
     }
-
     public void StartGame()
     {
         SceneManager.LoadSceneAsync(1);
